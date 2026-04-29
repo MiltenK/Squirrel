@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 import java.util.List;
 
-public class Burunduk {
+public class Burunduk implements INutCollector{
     private String name;
     private List<Nut> storage;
     private double deliveryChance;

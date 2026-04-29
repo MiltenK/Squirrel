@@ -1,6 +1,6 @@
 import java.util.List;
 
-public class Belka {
+public class Belka implements INutCollector{
     private String name;
     private int collectedCount;
     private double totalWeight;
