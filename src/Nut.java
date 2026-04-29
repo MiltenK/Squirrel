@@ -5,10 +5,12 @@ public class Nut {
         this.weight = weight;
     }
 
+    public double getWeight() {
+        return weight;
+    }
+
     @Override
     public String toString() {
-        return "nut{" +
-                "weight=" + weight +
-                '}';
+        return "nut{weight=" + weight + '}';
     }
 }

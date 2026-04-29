@@ -1,37 +1,53 @@
+import java.util.ArrayList;
+import java.util.List;
+
 public class Tree {
     private int level = 1;
-    private Nut[] arr = null;
+    private List<Nut> nuts;
 
     public Tree(int level) {
         this.level = level;
+        this.nuts = new ArrayList<>();
     }
 
+    public Tree() {
+        this(1);
+    }
+
+
+    public List<Nut> getNuts() {
+        return new ArrayList<>(nuts);
+    }
+
+
     public Nut[] getArr() {
-        return arr;
+        return nuts.toArray(new Nut[0]);
     }
 
     public void growNuts() {
         int min = 0;
         int max = level;
-        int len = (int) (min + Math.random() * (max - min + 1));
-        arr = new Nut[len];
+        int count = (int) (min + Math.random() * (max - min + 1));
 
+        nuts.clear();
 
-
-        for (int i = 0; i < len; i++) {
-            double min2 = 1.5;
-            double max2 = 15.0;
-            arr[i] = new Nut(min2 + Math.random() * (max2 - min2));
+        for (int i = 0; i < count; i++) {
+            double weight = 1.5 + Math.random() * (15.0 - 1.5);
+            nuts.add(new Nut(weight));
         }
 
-
-        for (Nut nut : arr) {
-            System.out.println(nut);
+        System.out.println("На дереве выросло " + count + " орехов:");
+        for (Nut nut : nuts) {
+            System.out.println("  " + nut);
         }
     }
 
     public void levelUp() {
         level++;
+        System.out.println("Дерево повысило уровень до " + level);
     }
 
+    public int getLevel() {
+        return level;
+    }
 }
